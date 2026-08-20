@@ -1,0 +1,44 @@
+[System]
+Name='new_classifier_atrial4'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=2
+NumRules=2
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='ROW1'
+Range=[0 1]
+NumMFs=2
+MF1='Low':'trapmf',[0 0.002 0.005 0.0743]
+MF2='High':'trapmf',[0.0744 0.5367 0.9494 1]
+
+[Input2]
+Name='ROW2'
+Range=[0 1]
+NumMFs=2
+MF1='Low':'trapmf',[0 0.35 0.65 0.92]
+MF2='High':'trapmf',[0.9394 0.9505 0.9997 1]
+
+[Output1]
+Name='Disease1'
+Range=[0 1]
+NumMFs=2
+MF1=' Non-SVA':'trapmf',[0 0.125 0.25 0.49]
+MF2='SVA':'trapmf',[0.51 0.625 0.75 1]
+
+[Output2]
+Name='Disease2'
+Range=[0 1]
+NumMFs=2
+MF1=' Non- AF':'trapmf',[0 0.125 0.25 0.49]
+MF2='AF':'trapmf',[0.51 0.625 0.75 1]
+
+[Rules]
+2 1, 2 0 (1) : 1
+1 2, 0 2 (1) : 1

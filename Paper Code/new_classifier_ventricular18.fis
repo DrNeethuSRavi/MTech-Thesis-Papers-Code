@@ -1,0 +1,59 @@
+[System]
+Name='new_classifier_ventricular18'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=3
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='ROW1'
+Range=[0 1]
+NumMFs=2
+MF1='Low':'trapmf',[0 0.35 0.65 0.89]
+MF2='High':'trapmf',[0.9 0.989 0.9988 1]
+
+[Input2]
+Name='ROW2'
+Range=[0 1]
+NumMFs=2
+MF1='Low':'trapmf',[0 0.1 0.125 0.19]
+MF2='High':'trapmf',[0.2042 0.5908 0.9944 1]
+
+[Input3]
+Name='ROW3'
+Range=[0 1]
+NumMFs=2
+MF1='Low':'trapmf',[0 0.1 0.25 0.39]
+MF2='High':'trapmf',[0.4095 0.5875 0.9999 1]
+
+[Output1]
+Name='Disease1'
+Range=[0 1]
+NumMFs=2
+MF1=' Non-PVC':'trapmf',[0 0.15 0.35 0.69]
+MF2='PVC':'trapmf',[0.7 0.8 0.9 1]
+
+[Output2]
+Name='Disease2'
+Range=[0 1]
+NumMFs=2
+MF1=' Non-VT':'trapmf',[0 0.15 0.35 0.49]
+MF2='VT':'trapmf',[0.5 0.65 0.9 1]
+
+[Output3]
+Name='Disease3'
+Range=[0 1]
+NumMFs=2
+MF1=' Non-MVE':'trapmf',[0 0.15 0.35 0.49]
+MF2='MVE':'trapmf',[0.5 0.65 0.9 1]
+
+[Rules]
+2 1 1, 2 0 0 (1) : 1
+1 2 1, 0 2 0 (1) : 1
+1 1 2, 0 0 2 (1) : 1

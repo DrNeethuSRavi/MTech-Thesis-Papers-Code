@@ -1,0 +1,78 @@
+[System]
+Name='new_classifier_simple9'
+Type='mamdani'
+Version=2.0
+NumInputs=4
+NumOutputs=4
+NumRules=4
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='ROW1'
+Range=[0 1]
+NumMFs=3
+MF1='Low':'trapmf',[0 0.15 0.35 0.49]
+MF2='High':'trapmf',[0.5 0.5493 0.9179 1]
+MF3='Medium':'trapmf',[0.0362 0.1044 0.3522 0.4132]
+
+[Input2]
+Name='ROW2'
+Range=[0 1]
+NumMFs=3
+MF1='Low':'trapmf',[0 0.15 0.3 0.49]
+MF2='High':'trapmf',[0.5 0.5016 0.994 1]
+MF3='Medium':'trapmf',[0.0029 0.114 0.4666 0.68]
+
+[Input3]
+Name='ROW3'
+Range=[0 1]
+NumMFs=3
+MF1='Low':'trapmf',[0 0.15 0.35 0.49]
+MF2='High':'trapmf',[0.5 0.5211 0.9999 1]
+MF3='Medium':'trapmf',[0.0008 0.2545 0.394 0.4773]
+
+[Input4]
+Name='ROW4'
+Range=[0 1]
+NumMFs=3
+MF1='Low':'trapmf',[0 0.15 0.35 0.49]
+MF2='High':'trapmf',[0.5 0.5822 0.9999 1]
+MF3='Medium':'trapmf',[0.0061 0.1 0.17 0.2464]
+
+[Output1]
+Name='Disease1'
+Range=[0 1]
+NumMFs=2
+MF1=' ABNORMAL':'trapmf',[0 0.125 0.25 0.49]
+MF2='NORMAL':'trapmf',[0.51 0.625 0.75 1]
+
+[Output2]
+Name='Disease2'
+Range=[0 1]
+NumMFs=2
+MF1=' Non- ATRIAL ARRHYTHMIA':'trapmf',[0 0.125 0.25 0.49]
+MF2='ATRIAL ARRHYTHMIA':'trapmf',[0.51 0.625 0.75 1]
+
+[Output3]
+Name='Disease3'
+Range=[0 1]
+NumMFs=2
+MF1=' Non-VENTRCICULAR ARRHYTHMIA':'trapmf',[0 0.125 0.25 0.49]
+MF2='VENTRCICULAR ARRHYTHMIA':'trapmf',[0.51 0.625 0.75 1]
+
+[Output4]
+Name='Disease4'
+Range=[0 1]
+NumMFs=2
+MF1='Non- MYOCARDIAL INFRACTION':'trapmf',[0 0.125 0.25 0.49]
+MF2='MYOCARDIAL INFRACTION':'trapmf',[0.51 0.625 0.75 1]
+
+[Rules]
+1 2 1 1, 0 2 0 0 (1) : 1
+1 1 2 1, 0 0 2 0 (1) : 1
+1 1 1 2, 0 0 0 2 (1) : 1
+2 1 1 1, 2 0 0 0 (1) : 1
